@@ -37,10 +37,55 @@ class _HomePageState extends State<HomePage> {
           Expanded(
               flex: 3,
               child: Container(
+                child: Column(
+                  children: [
+                    Responsive(
+                        mobile: ImageIN(height: 200, fontSize: 18),
+                        mobileLarge: ImageIN(height: 250, fontSize: 20),
+                        tablet: ImageIN(height: 300, fontSize: 25),
+                        desktop: ImageIN(height: 400, fontSize: 30)),
+                  ],
+                ),
                 color: Colors.teal,
               ))
         ],
       ),
+    );
+  }
+}
+
+class ImageIN extends StatelessWidget {
+  final double fontSize;
+  final double height;
+  const ImageIN({
+    Key? key,
+    required this.height,
+    required this.fontSize,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Image.asset(
+          'assets/images/image.jpg',
+          width: double.infinity,
+          height: height,
+          fit: BoxFit.cover,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Text(
+            ' this is a big mountain That you can not climb',
+            style: TextStyle(color: Colors.white, fontSize: fontSize),
+          ),
+        ),
+        if (Responsive.isDesktop(context))
+          Align(
+            child: ElevatedButton(onPressed: () {}, child: Text('enter now')),
+            alignment: Alignment.bottomCenter,
+          )
+      ],
     );
   }
 }
