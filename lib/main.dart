@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_app/home3.dart';
+import 'package:responsive_app/home4.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
